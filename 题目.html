@@ -23,16 +23,50 @@
         .navbar a:hover {
             color: #666666; /* 设置鼠标悬停时链接文字颜色为灰色 */
         }
-        /* Logo样式 */
-        .navbar img {
-            margin-top: -25px; /* 向上移动25像素 */
-            vertical-align: middle; /* 垂直居中 */
+        /* 用户信息样式 */
+        .user-info {
             position: absolute; /* 绝对定位 */
-            left: 35px; /* 距离左边35像素 */
-            z-index: 1; /* 设置 z-index 值 */
+            top: 50%; /* 居中 */
+            right: 20px; /* 靠右对齐 */
+            transform: translateY(-50%); /* 上移50%自身高度 */
+            display: flex; /* 使用弹性盒子布局 */
+            align-items: center; /* 垂直居中对齐 */
+        }
+        .user-info img {
+            width: 30px; /* 设置头像宽度 */
+            height: 30px; /* 设置头像高度 */
+            border-radius: 50%; /* 设置圆角 */
+            margin-right: 10px; /* 右边距10像素 */
+        }
+        .user-info .username {
+            margin-right: 10px; /* 右边距10像素 */
+            font-weight: bold; /* 设置字体加粗 */
+            cursor: pointer; /* 设置鼠标样式为手型 */
+        }
+        /* 用户功能下拉菜单样式 */
+        .user-menu {
+            position: absolute; /* 绝对定位 */
+            top: calc(100% + 10px); /* 距离顶部10像素 */
+            right: 0; /* 靠右对齐 */
+            background-color: #fff; /* 设置背景颜色为白色 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+            display: none; /* 默认隐藏 */
+            padding: 10px; /* 设置内边距 */
+        }
+        .user-menu a {
+            display: block; /* 设置为块级元素 */
+            color: #333; /* 设置文字颜色为深灰色 */
+            text-decoration: none; /* 移除链接下划线 */
+            margin-bottom: 5px; /* 底部外边距为5像素 */
+        }
+        .user-menu a:hover {
+            color: #666; /* 设置鼠标悬停时文字颜色为灰色 */
+        }
+        /* 用户功能下拉菜单显示样式 */
+        .user-info:hover .user-menu {
+            display: block; /* 鼠标悬停时显示 */
         }
     </style>
-    <link rel="icon" href="logo.png" type="image/x-icon"> <!-- 设置网站图标 -->
 </head>
 <body>
     <!-- 导航栏 -->
@@ -45,8 +79,22 @@
         <a href="https://mtaem.github.io/提交">提交</a>
         <a href="https://mtaem.github.io/排名">排名</a>
         <a href="https://mtaem.github.io/讨论">讨论</a>
+
+        <!-- 用户信息 -->
+        <div class="user-info">
+            <img src="user-avatar.png" alt="User Avatar"> <!-- 用户头像 -->
+            <div class="username">Username</div> <!-- 用户名 -->
+            <!-- 用户功能下拉菜单 -->
+            <div class="user-menu">
+                <a href="#">查看个人简介</a>
+                <a href="#">更改用户信息</a>
+                <!-- 如果是管理员或超级管理员，显示激活按钮 -->
+                <a href="#">激活</a>
+            </div>
+        </div>
     </div>
 
     <!-- 这里是你的网站内容 -->
 </body>
 </html>
+
