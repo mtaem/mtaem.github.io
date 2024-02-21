@@ -3,104 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mTaem</title>
+    <title>mTaem编程刷题网站</title>
+    <!-- 在这里可以添加你的 logo -->
+    <!-- <link rel="icon" href="logo.png" type="image/png"> -->
     <style>
-        /* 导航栏样式 */
-        .navbar {
-            background-color: #f2f2f2; /* 设置导航栏背景颜色为灰色 */
-            padding: -3px; /* 将导航栏内边距设置为5像素 */
-            text-align: center; /* 文字居中对齐 */
-            position: relative; /* 相对定位 */
-            margin-top: 13px; /* 将边框上移13像素 */
-            border: 1px solid #ffffff; /* 设置边框为白色 */
+        /* 在这里可以添加你的 CSS 样式，定义网页的整体风格 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .navbar a.navbar-link {
-            color: #000000; /* 设置链接文字颜色为黑色 */
-            text-decoration: none; /* 移除链接下划线 */
-            margin: 0 30px; /* 设置链接之间的间距 */
-            font-size: 20px; /* 设置字体大小为20像素 */
-            position: relative; /* 相对定位 */
-            top: -27.5px; /* 将链接向上移动27.5像素 */
-        }
-        .navbar a:hover {
-            color: #666666; /* 设置鼠标悬停时链接文字颜色为灰色 */
-        }
-	.navbar img {
-    		margin-top: 3px; /* 让 logo 下降 3px */
-	}
 
-        /* 用户信息样式 */
-        .user-info {
-            position: absolute; /* 绝对定位 */
-            top: 50%; /* 居中 */
-            right: 20px; /* 靠右对齐 */
-            transform: translateY(-50%); /* 上移50%自身高度 */
-            display: flex; /* 使用弹性盒子布局 */
-            align-items: center; /* 垂直居中对齐 */
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
         }
-        .user-info img {
-            width: 30px; /* 设置头像宽度 */
-            height: 30px; /* 设置头像高度 */
-            border-radius: 50%; /* 设置圆角 */
-            margin-right: 10px; /* 右边距10像素 */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1em;
         }
-        .user-info .username {
-            margin-right: 20px; /* 右边距10像素 */
-            font-weight: bold; /* 设置字体加粗 */
-            cursor: pointer; /* 设置鼠标样式为手型 */
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
         }
-        /* 用户功能下拉菜单样式 */
-        .user-menu {
-            position: absolute; /* 绝对定位 */
-            top: calc(100% + 20px); /* 距离顶部10像素 */
-            right: 0; /* 靠右对齐 */
-            background-color: #fff; /* 设置背景颜色为白色 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
-            display: none; /* 默认隐藏 */
-            padding: 10px; /* 设置内边距 */
-            width: 120px; /* 设置弹出窗口宽度 */
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .user-menu a {
-            display: block; /* 设置为块级元素 */
-            color: #333; /* 设置文字颜色为深灰色 */
-            text-decoration: none; /* 移除链接下划线 */
-            margin-bottom: 5px; /* 底部外边距为5像素 */
-        }
-        .user-menu a:hover {
-            color: #666; /* 设置鼠标悬停时文字颜色为灰色 */
-        }
-        /* 用户功能下拉菜单显示样式 */
-        .user-info:hover .user-menu {
-            display: block; /* 鼠标悬停时显示 */
-        }
+
+        /* 在这里可以添加其他样式规则 */
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <div class="navbar">
-        <img src="logo.png" alt="Logo" width="80" height="80" style="margin-right: 90px; margin-left: -20px;"> <!-- Logo -->
-        <a href="https://mtaem.github.io/" class="navbar-link">首页</a>
-        <a href="https://mtaem.github.io/题目" class="navbar-link">题目</a>
-        <a href="https://mtaem.github.io/训练" class="navbar-link">训练</a>
-        <a href="https://mtaem.github.io/比赛" class="navbar-link">比赛</a>
-        <a href="https://mtaem.github.io/提交" class="navbar-link">提交</a>
-        <a href="https://mtaem.github.io/排名" class="navbar-link">排名</a>
-        <a href="https://mtaem.github.io/讨论" class="navbar-link">讨论</a>
 
-        <!-- 用户信息 -->
-        <div class="user-info">
-            <img src="user-avatar.png"> <!-- 用户头像 -->
-            <div class="username">Username</div> <!-- 用户名 -->
-            <!-- 用户功能下拉菜单 -->
-            <div class="user-menu">
-                <a href="#">简介</a>
-                <!-- 如果是管理员或超级管理员，显示激活按钮 -->
-                <a href="#">激活</a>
-            </div>
-        </div>
-    </div>
+    <header>
+        <h1>编程刷题网站</h1>
+        <nav>
+            <!-- 在这里可以添加其他导航链接 -->
+            <a href="#login">登录/注册</a>
+        </nav>
+    </header>
 
-    <!-- 这里是你的网站内容 -->
+    <section id="home">
+        <!-- 在这里可以添加首页的内容 -->
+        <h2>Welcome to the mTaem</h2>
+        <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
+    </section>
+
+    <section id="problems">
+        <!-- 在这里可以添加题目列表的内容 -->
+        <h2>题目列表</h2>
+        <ul>
+            <li><a href="#">题目1</a></li>
+            <li><a href="#">题目2</a></li>
+            <!-- 在这里添加更多题目 -->
+        </ul>
+    </section>
+
+    <section id="login">
+        <!-- 在这里可以添加用户登录/注册的内容 -->
+        <h2>用户登录/注册</h2>
+        <form>
+            <!-- 在这里添加登录和注册表单 -->
+        </form>
+    </section>
+
+    <footer>
+        <!-- 在这里可以添加页脚信息 -->
+        <p>&copy; 2024 mTaem. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
+
 

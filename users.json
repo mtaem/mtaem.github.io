@@ -1,0 +1,20 @@
+[
+  {
+    "username": "user1",
+    "password": "password1",
+    "exerciseCount": 0,
+    "dailyExercise": [],
+    "active": false,
+    "role": "member"
+    "email": "lixinze2013@outlook.com"
+  },
+  {
+    "username": "user2",
+    "password": "password2",
+    "exerciseCount": 0,
+    "dailyExercise": [],
+    "active": false,
+    "role": "member"
+  },
+  // 其他用户信息
+]
