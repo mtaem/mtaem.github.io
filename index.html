@@ -25,28 +25,44 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 1em;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 15px; /* 为了导航链接之间添加一些间隔 */
         }
 
-        section {
-            max-width: 800px;
+        .login-btn {
+            margin-left: auto; /* 将按钮推到右侧 */
+        }
+
+        /* 添加欢迎信息的样式 */
+        #home {
+            max-width: 400px; /* 进一步缩减白色框的宽度 */
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            left: -420px; /* 进一步向左移动白色框 */
         }
 
-        .login-btn {
-            margin-left: auto; /* 将按钮推到右侧 */
+        #home .welcome-message {
+            writing-mode: vertical-rl; /* 设置文字竖排 */
+            text-align: center; /* 文字居中 */
+            padding: 0 20px; /* 添加内边距 */
+        }
+
+        #home .logo {
+            position: absolute;
+            top: 160px; /* 进一步向上移动logo */
+            right: 60px; /* 将logo向左移动一点点 */
+            width: 120px; /* 放大logo的宽度 */
+            height: auto; /* 自适应高度 */
         }
 
         /* 在这里可以添加其他样式规则 */
@@ -65,26 +81,12 @@
 
     <section id="home">
         <!-- 在这里可以添加首页的内容 -->
-        <h2>Welcome to the mTaem</h2>
-        <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
-    </section>
-
-    <section id="problems">
-        <!-- 在这里可以添加题目列表的内容 -->
-        <h2>题目列表</h2>
-        <ul>
-            <li><a href="#">题目1</a></li>
-            <li><a href="#">题目2</a></li>
-            <!-- 在这里添加更多题目 -->
-        </ul>
-    </section>
-
-    <section id="login">
-        <!-- 在这里可以添加用户登录/注册的内容 -->
-        <h2>用户登录/注册</h2>
-        <form>
-            <!-- 在这里添加登录和注册表单 -->
-        </form>
+        <div class="welcome-message">
+            <h2>Welcome to the mTaem</h2>
+            <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
+        </div>
+        <!-- 添加logo -->
+        <img src="logo.png" alt="mTaem Logo" class="logo">
     </section>
 
     <footer>
@@ -94,5 +96,3 @@
 
 </body>
 </html>
-
-
