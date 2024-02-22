@@ -20,12 +20,34 @@
             margin: 80px auto 0; /* 垂直居中且向下移动 */
             border-radius: 8px; /* 添加圆角 */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+            position: relative; /* 相对定位 */
+        }
+
+        .content a.arrow {
+            text-decoration: none; /* 去除下划线 */
+            color: #888; /* 灰色 */
+            position: absolute; /* 绝对定位 */
+            top: 10px; /* 上边距 */
+            left: 10px; /* 左边距 */
+            display: flex; /* 使用 Flex 布局 */
+            align-items: center; /* 垂直居中 */
+            cursor: pointer; /* 光标样式 */
+        }
+
+        .content a.arrow:hover {
+            color: #555; /* 深灰色 */
+        }
+
+        .content a.arrow img {
+            width: 20px; /* 图标宽度 */
+            margin-right: 5px; /* 右边距 */
         }
 
         h1 {
             font-size: 24px; /* 大字 */
             font-weight: bold; /* 粗体 */
             margin-bottom: 10px; /* 底部间距 */
+            text-align: center; /* 文本居中 */
         }
 
         .label {
@@ -76,6 +98,10 @@
 <body>
 
 <section class="content">
+    <a href="https://mtaem.github.io" title="返回首页" class="arrow">
+        <img src="left-arrow.png" alt="左箭头">
+        返回首页
+    </a>
     <h1>登录mTaem</h1>
     <div class="label">用户名</div>
     <input type="text" placeholder="请输入用户名">
