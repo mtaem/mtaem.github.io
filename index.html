@@ -66,34 +66,82 @@
             left: 190px; /* 向右移动logo */
         }
 
-        /* 在这里可以添加其他样式规则 */
+        /* 警告信息样式 */
+        #fullscreen-warning, #desktop-warning {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: red;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid red;
+            z-index: 9999;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <!-- 在这里可以添加其他导航链接 -->
-            <a href="#home">首页</a>
-            <a href="#problems">题目列表</a>
-            <a href="#login" class="login-btn">登录/注册</a>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <!-- 在这里可以添加其他导航链接 -->
+        <a href="#home">首页</a>
+        <a href="#problems">题目列表</a>
+        <a href="#login" class="login-btn">登录/注册</a>
+    </nav>
+</header>
 
-    <section id="home">
-        <!-- 在这里可以添加首页的内容 -->
-        <div class="welcome-message">
-            <h2>Welcome to the mTaem</h2>
-            <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
-        </div>
-        <!-- 添加logo -->
-        <img src="logo.png" alt="mTaem Logo" class="logo">
-    </section>
+<section id="home">
+    <!-- 在这里可以添加首页的内容 -->
+    <div class="welcome-message">
+        <h2>Welcome to the mTaem</h2>
+        <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
+    </div>
+    <!-- 添加logo -->
+    <img src="logo.png" alt="mTaem Logo" class="logo">
+</section>
 
-    <footer>
-        <!-- 在这里可以添加页脚信息 -->
-        <p>&copy; 2024 mTaem. All rights reserved.</p>
-    </footer>
+<footer>
+    <!-- 在这里可以添加页脚信息 -->
+    <p>&copy; 2024 mTaem. All rights reserved.</p>
+</footer>
+
+<!-- 警告信息 -->
+<div id="fullscreen-warning">请全屏使用</div>
+<div id="desktop-warning">请使用电脑</div>
+
+<!-- JavaScript -->
+<script>
+    var fullscreenWarningElement = document.getElementById('fullscreen-warning');
+    var desktopWarningElement = document.getElementById('desktop-warning');
+
+    // 检查窗口宽度和高度并显示警告信息
+    function checkWindowSize() {
+        // 获取用户代理字符串
+        var userAgent = navigator.userAgent.toLowerCase();
+        // 检查用户代理字符串是否包含 "windows" 或 "mac"
+        var isWindowsOrMac = userAgent.indexOf('windows') !== -1 || userAgent.indexOf('mac') !== -1;
+
+        if (!isWindowsOrMac) {
+            desktopWarningElement.style.display = 'block';
+            fullscreenWarningElement.style.display = 'none';
+        } else if (window.innerWidth < 1300 || window.innerHeight < 600) {
+            fullscreenWarningElement.style.display = 'block';
+            desktopWarningElement.style.display = 'none';
+        } else {
+            fullscreenWarningElement.style.display = 'none';
+            desktopWarningElement.style.display = 'none';
+        }
+    }
+
+    // 初始检查一次窗口大小
+    checkWindowSize();
+
+    // 监听窗口大小变化事件
+    window.addEventListener('resize', checkWindowSize);
+</script>
 
 </body>
 </html>
