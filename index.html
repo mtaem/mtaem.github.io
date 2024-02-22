@@ -9,7 +9,7 @@
     <style>
         /* 在这里可以添加你的 CSS 样式，定义网页的整体风格 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Arial", sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
@@ -48,13 +48,15 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            left: -400px; /* 进一步向左移动白色框 */
+            left: -400px; /* 将白色框向左移动一点 */
         }
 
         #home .welcome-message {
             writing-mode: vertical-rl; /* 设置文字竖排 */
             text-align: center; /* 文字居中 */
             padding: 0 20px; /* 添加内边距 */
+            line-height: 1.2; /* 设置较小的行高 */
+            margin-left: 10px; /* 调整左边距 */
         }
 
         #home .logo {
@@ -89,7 +91,7 @@
         <!-- 在这里可以添加其他导航链接 -->
         <a href="#home">首页</a>
         <a href="#problems">题目列表</a>
-        <a href="#login" class="login-btn">登录/注册</a>
+        <a href="login" class="login-btn">登录/注册</a>
     </nav>
 </header>
 

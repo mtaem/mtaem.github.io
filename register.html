@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mTaem注册</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        body {
+            background-color: #eaf6ff; /* 淡蓝色背景 */
+            font-family: "Arial", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            background-color: #fff; /* 白色背景 */
+            padding: 40px; /* 设置内边距 */
+            max-width: 400px; /* 设置最大宽度 */
+            margin: 80px auto 0; /* 垂直居中且向下移动 */
+            border-radius: 8px; /* 添加圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+        }
+
+        h1 {
+            font-size: 24px; /* 大字 */
+            font-weight: bold; /* 粗体 */
+            margin-bottom: 10px; /* 底部间距 */
+            text-align: center; /* 文本居中 */
+        }
+
+        .label {
+            font-size: 14px; /* 小字 */
+            color: #888; /* 灰色 */
+            margin-bottom: 5px; /* 底部间距 */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%; /* 输入框宽度 */
+            padding: 8px; /* 输入框内边距 */
+            margin-bottom: 15px; /* 底部间距 */
+            border: 1px solid #ccc; /* 边框 */
+            border-radius: 4px; /* 圆角 */
+        }
+
+        button {
+            background-color: #4CAF50; /* 绿色按钮 */
+            color: white; /* 白色文字 */
+            padding: 10px 15px; /* 内边距 */
+            border: none; /* 去除边框 */
+            border-radius: 4px; /* 圆角 */
+            cursor: pointer; /* 光标样式 */
+            width: 100%; /* 宽度 */
+        }
+
+        button:hover {
+            background-color: #45a049; /* 鼠标悬停时的背景色 */
+        }
+
+        .login-link {
+            font-size: 12px; /* 小字 */
+            color: #888; /* 灰色 */
+            margin-top: 10px; /* 顶部间距 */
+            text-align: center; /* 文本居中 */
+        }
+
+        .login-link a {
+            text-decoration: none; /* 去除下划线 */
+        }
+
+        .login-link a:hover {
+            text-decoration: underline; /* 鼠标悬停时显示下划线 */
+        }
+    </style>
+</head>
+<body>
+
+<section class="content">
+    <h1>注册mTaem</h1>
+    <form action="#" method="post">
+        <div class="label">用户名</div>
+        <input type="text" name="username" placeholder="请输入用户名" required>
+        <div class="label">用户密码</div>
+        <input type="password" name="password" placeholder="请输入密码" required>
+        <div class="label">电子邮件</div>
+        <input type="email" name="email" placeholder="请输入电子邮件" required>
+        <div class="label">验证码</div>
+        <input type="number" name="verification" placeholder="请输入验证码" required>
+        <button type="submit">注册</button>
+    </form>
+    <div class="login-link"><a href="https://mtaem.github.io/login">已有账号？登录</a></div>
+</section>
+
+</body>
+</html>
