@@ -130,7 +130,43 @@
             float: left; /* 左浮动 */
             margin-right: 6px; /* 右外边距 */
         }
+
+        /* 新增用于显示错误信息的样式 */
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
     </style>
+    <!-- 添加一个script标签用于放置JavaScript代码 -->
+    <script>
+        function validateAndSend() {
+            const emailInput = document.getElementById('emailInput');
+            const emailError = document.getElementById('emailError');
+
+            // 验证电子邮件是否为空或格式是否正确
+            if (!validateEmail(emailInput.value)) {
+                emailError.textContent = "请确保电子邮件地址完整且格式正确!";
+                return;
+            } else {
+                emailError.textContent = ""; // 清除错误信息
+            }
+
+            // 如果需要，此处添加对验证码输入框的验证逻辑（这里仅作演示，未提供实际发送逻辑）
+            // ...
+
+            // 验证通过，此处执行发送验证码的操作（这里仅作模拟操作）
+            simulateSendingVerificationCode();
+        }
+
+        function validateEmail(email) {
+            const re = /^[\w.-]+@[\w-]+\.[\w.-]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function simulateSendingVerificationCode() {
+            alert("验证码已发送，请查收邮件。");
+        }
+    </script>
 </head>
 <body>
 
@@ -140,16 +176,25 @@
         返回首页
     </a>
     <h1>注册mTaem</h1>
+    
     <div class="label">用户名</div>
     <input type="text" placeholder="请输入用户名">
+
     <div class="label">用户密码</div>
     <input type="password" placeholder="请输入密码">
+
     <div class="label">电子邮件</div>
-    <input type="email" placeholder="请输入电子邮件">
+    <input type="email" id="emailInput" placeholder="请输入电子邮件">
+    <!-- 新增一个用于显示错误信息的元素 -->
+    <div id="emailError" class="error-message"></div>
+
     <div class="label">验证码</div>
-    <input type="text" name="verification" placeholder="请输入验证码">
-    <button class="send-verification">发送</button>
+    <input type="text" id="verificationCode" name="verification" placeholder="请输入验证码">
+    <!-- 更新“发送”按钮，添加onclick事件 -->
+    <button class="send-verification" onclick="validateAndSend()">发送</button>
+
     <button class="register-button">注册</button>
+
     <div class="register-link"><a href="https://mtaem.github.io/login">已有账号？登录</a></div>
 </section>
 
