@@ -7,53 +7,53 @@
     <link rel="icon" href="logo.png" type="image/png">
     <style>
         body {
-            background-color: #eaf6ff; /* 淡蓝色背景 */
+            background-color: #eaf6ff;
             font-family: "Arial", sans-serif;
             margin: 0;
             padding: 0;
         }
 
         .content {
-            background-color: #fff; /* 白色背景 */
-            padding: 40px; /* 设置内边距 */
-            max-width: 400px; /* 设置最大宽度 */
-            margin: 80px auto 0; /* 垂直居中且向下移动 */
-            border-radius: 8px; /* 添加圆角 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
-            position: relative; /* 相对定位 */
+            background-color: #fff;
+            padding: 40px;
+            max-width: 400px;
+            margin: 80px auto 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .content a.arrow {
-            text-decoration: none; /* 去除下划线 */
-            color: #888; /* 灰色 */
-            position: absolute; /* 绝对定位 */
-            top: 10px; /* 上边距 */
-            left: 10px; /* 左边距 */
-            display: flex; /* 使用 Flex 布局 */
-            align-items: center; /* 垂直居中 */
-            cursor: pointer; /* 光标样式 */
+            text-decoration: none;
+            color: #888;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
 
         .content a.arrow:hover {
-            color: #555; /* 深灰色 */
+            color: #555;
         }
 
         .content a.arrow img {
-            width: 20px; /* 图标宽度 */
-            margin-right: 5px; /* 右边距 */
+            width: 20px;
+            margin-right: 5px;
         }
 
         h1 {
-            font-size: 24px; /* 大字 */
-            font-weight: bold; /* 粗体 */
-            margin-bottom: 10px; /* 底部间距 */
-            text-align: center; /* 文本居中 */
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
         .label {
-            font-size: 14px; /* 小字 */
-            color: #888; /* 灰色 */
-            margin-bottom: 5px; /* 底部间距 */
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 5px;
         }
 
         input[type="text"],
@@ -61,74 +61,78 @@
         input[type="email"],
         input[type="number"],
         button {
-            width: 100%; /* 宽度 */
-            padding: 8px; /* 内边距 */
-            margin-bottom: 15px; /* 底部间距 */
-            border: 1px solid #ccc; /* 边框 */
-            border-radius: 4px; /* 圆角 */
-            box-sizing: border-box; /* 确保宽度包含边框和内边距 */
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
         button {
-            background-color: #4CAF50; /* 绿色按钮 */
-            color: white; /* 白色文字 */
-            cursor: pointer; /* 光标样式 */
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
         }
 
         button:hover {
-            background-color: #45a049; /* 鼠标悬停时的背景色 */
+            background-color: #45a049;
         }
 
         .send-verification {
-            background-color: #4CAF50; /* 绿色按钮 */
-            color: white; /* 白色文字 */
-            padding: 8px; /* 内边距 */
-            border: none; /* 去除边框 */
-            border-radius: 4px; /* 圆角 */
-            cursor: pointer; /* 光标样式 */
-            float: right; /* 靠右浮动 */
-            width: calc(30% - 6px); /* 计算宽度 */
-            margin-left: 6px; /* 左外边距 */
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            width: calc(30% - 6px);
+            margin-left: 6px;
         }
 
         .send-verification:hover {
-            background-color: #45a049; /* 鼠标悬停时的背景色 */
+            background-color: #45a049;
         }
 
         .register-button {
-            background-color: #4CAF50; /* 绿色按钮 */
-            color: white; /* 白色文字 */
-            padding: 10px; /* 内边距 */
-            border: none; /* 去除边框 */
-            border-radius: 4px; /* 圆角 */
-            cursor: pointer; /* 光标样式 */
-            width: 100%; /* 宽度 */
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
         }
 
         .register-button:hover {
-            background-color: #45a049; /* 鼠标悬停时的背景色 */
+            background-color: #45a049;
         }
 
         .register-link {
-            font-size: 12px; /* 小字 */
-            color: #888; /* 灰色 */
-            margin-top: 10px; /* 顶部间距 */
-            text-align: center; /* 文本居中 */
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
         }
 
         .register-link a {
-            text-decoration: none; /* 去除下划线 */
+            text-decoration: none;
         }
 
         .register-link a:hover {
-            text-decoration: underline; /* 鼠标悬停时显示下划线 */
+            text-decoration: underline;
         }
 
-        /* 调整验证码输入框长度 */
         input[type="text"][name="verification"] {
-            width: calc(70% - 6px); /* 输入框宽度 */
-            float: left; /* 左浮动 */
-            margin-right: 6px; /* 右外边距 */
+            width: calc(70% - 6px);
+            float: left;
+            margin-right: 6px;
+        }
+
+        /* 修改：隐藏验证错误提示框 */
+        input:invalid + .validation-message {
+            display: none;
         }
     </style>
 </head>
@@ -147,13 +151,41 @@
         <input type="password" id="password" placeholder="请输入密码" required>
         <div class="label">电子邮件</div>
         <input type="email" id="email" placeholder="请输入电子邮件" required>
-        <div class="label">验证码</div>
-        <input type="text" id="verification" name="verification" placeholder="请输入验证码" required>
         <button class="send-verification" onclick="sendVerification()">发送</button>
+        <!-- 修改：移除验证码输入框的隐藏 -->
+        <div id="verificationDiv">
+            <div class="label">验证码</div>
+            <input type="text" id="verification" name="verification" placeholder="请输入验证码">
+            <!-- 修改：移除验证错误提示框 -->
+            <!-- <div class="validation-message">请输入验证码</div> -->
+        </div>
         <button class="register-button" onclick="registerUser()">注册</button>
     </form>
     <div class="register-link"><a href="https://mtaem.github.io/login">已有账号？登录</a></div>
 </section>
+
+<script>
+    function sendVerification() {
+        // 这里可以添加发送验证码的逻辑
+        // 发送验证码按钮被点击时，显示验证码输入框
+        document.getElementById("verificationDiv").style.display = "block";
+    }
+
+    function registerUser() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var email = document.getElementById("email").value;
+        var verification = document.getElementById("verification").value;
+
+        // 检查用户名、密码和电子邮件是否为空
+        if (username === "" || password === "" || email === "") {
+            alert("请填写完整的注册信息");
+            return;
+        }
+
+        // 这里可以添加注册用户的逻辑
+    }
+</script>
 
 </body>
 </html>
