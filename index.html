@@ -12,6 +12,9 @@
             color: #333;
             margin: 0;
             padding: 0;
+            position: relative;
+            min-height: 100vh; /* 确保 footer 在页面底部 */
+            padding-bottom: 60px; /* 留出 footer 的空间 */
         }
 
         header {
@@ -66,7 +69,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            left: 25px; /* 设置距离左侧的距离 */
+            left: 40px; /* 设置距离左侧的距离 */
         }
 
         #home .welcome-message {
@@ -87,10 +90,14 @@
         }
 
         footer {
+            position: fixed;
+            bottom: 10px; /* 向下移动 10px */
+            left: 0;
+            width: 100%;
             text-align: center;
             padding: 10px;
-            background-color: #3498db;
-            color: #fff;
+            background-color: transparent; /* 背景颜色透明 */
+            color: #000; /* 文字颜色黑色 */
         }
     </style>
 </head>
@@ -105,7 +112,7 @@
         <a href="#">提交</a>
         <a href="#">排名</a>
         <a href="#">讨论</a>
-        <a href="https://mtaem.github.io/login" class="login-btn">登录/注册</a> <!-- 调整右侧间距 -->
+        <a href="https://mtaem.github.io/login" class="login-btn">登录/注册</a>
     </div>
 </header>
 
