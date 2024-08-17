@@ -19,33 +19,54 @@
             color: #fff;
             text-align: center;
             padding: 1em;
+            position: fixed; /* 固定定位 */
+            top: 0; /* 靠近顶部 */
+            left: 0;
+            width: 100%; /* 全宽 */
+            z-index: 1000; /* 确保在其他内容上方 */
         }
 
-        nav {
+        .navbar {
             display: flex;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(45deg, #3498db, #2980b9); /* 渐变背景 */
+            padding: 1px 0; /* 减少上下内边距 */
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* 更细的阴影 */
         }
 
-        nav a {
+        .navbar a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 6px; /* 减少水平间隔 */
+            padding: 2px 6px; /* 进一步减少内边距 */
+            border-radius: 4px;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        .login-btn {
-            margin-left: auto;
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* 放大效果 */
+        }
+
+        .navbar .login-btn {
+            margin-left: auto; /* 将登录/注册链接推到右侧 */
+            margin-right: 20px; /* 设置距离右边框的距离 */
+        }
+
+        /* 内容区域的上边距应调整，以避免被固定导航栏遮盖 */
+        .content {
+            margin-top: 80px; /* 调整为导航栏的高度 + 额外空间 */
         }
 
         #home {
             max-width: 400px;
-            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            left: -400px;
+            left: 25px; /* 设置距离左侧的距离 */
         }
 
         #home .welcome-message {
@@ -58,31 +79,45 @@
 
         #home .logo {
             position: absolute;
-            top: 80px; /* 向上移动20px */
+            top: 80px;
             right: 50px;
             width: 300px;
             height: auto;
-            left: 130px;
+            left: 135px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <a href="#home">首页</a>
-        <a href="#problems">题目列表</a>
-        <a href="login" class="login-btn">登录/注册</a>
-    </nav>
+    <div class="navbar">
+        <a href="#">首页</a>
+        <a href="#">题目</a>
+        <a href="#">训练</a>
+        <a href="#">比赛</a>
+        <a href="#">提交</a>
+        <a href="#">排名</a>
+        <a href="#">讨论</a>
+        <a href="https://mtaem.github.io/login" class="login-btn">登录/注册</a> <!-- 调整右侧间距 -->
+    </div>
 </header>
 
-<section id="home">
-    <div class="welcome-message">
-        <h2>Welcome to the mTaem</h2>
-        <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
-    </div>
-    <img src="logo.png" alt="mTaem Logo" class="logo">
-</section>
+<div class="content">
+    <section id="home">
+        <div class="welcome-message">
+            <h2>Welcome to the mTaem</h2>
+            <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
+        </div>
+        <img src="logo.png" alt="mTaem Logo" class="logo">
+    </section>
+</div>
 
 <footer>
     <p>&copy; 2024 mTaem. All rights reserved.</p>
