@@ -14,7 +14,7 @@
             padding: 0;
             position: relative;
             min-height: 100vh; /* 确保 footer 在页面底部 */
-            padding-bottom: 60px; /* 留出 footer 的空间 */
+            padding-bottom: 50px; /* 留出 footer 的空间 */
         }
 
         header {
@@ -91,13 +91,33 @@
 
         footer {
             position: fixed;
-            bottom: 10px; /* 向下移动 10px */
+            bottom: 0; /* 保持在页面底部 */
             left: 0;
             width: 100%;
             text-align: center;
             padding: 10px;
             background-color: transparent; /* 背景颜色透明 */
             color: #000; /* 文字颜色黑色 */
+            cursor: pointer; /* 鼠标悬停时显示手型 */
+            z-index: 1000; /* 确保在其他内容上方 */
+        }
+
+        .language-tooltip {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            bottom: 45px; /* 提示框位置向上调整 */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        footer:hover .language-tooltip {
+            display: block;
         }
     </style>
 </head>
@@ -119,16 +139,41 @@
 <div class="content">
     <section id="home">
         <div class="welcome-message">
-            <h2>Welcome to the mTaem</h2>
-            <p>在这里，你可以找到各种编程题目，提升你的编程技能。</p>
+            <h2 id="welcome-title">欢迎来到 mTaem</h2>
+            <p id="welcome-text">在这里，你可以找到各种编程题目，提升你的编程技能。</p>
         </div>
         <img src="logo.png" alt="mTaem Logo" class="logo">
     </section>
 </div>
 
-<footer>
-    <p>mTaem~你编程路上的顺风车</p>
+<footer id="footer">
+    <p id="footer-text">mTaem~你编程路上的顺风车
+        <span class="language-tooltip">点击此切换中英文</span>
+    </p>
 </footer>
+
+<script>
+    const footer = document.getElementById('footer');
+    const footerText = document.getElementById('footer-text');
+    const welcomeTitle = document.getElementById('welcome-title');
+    const welcomeText = document.getElementById('welcome-text');
+
+    let isChinese = true;
+
+    footer.addEventListener('click', () => {
+        isChinese = !isChinese;
+
+        if (isChinese) {
+            footerText.innerHTML = 'mTaem~你编程路上的顺风车 <span class="language-tooltip">点击此切换中英文</span>';
+            welcomeTitle.innerHTML = '欢迎来到 mTaem';
+            welcomeText.innerHTML = '在这里，你可以找到各种编程题目，提升你的编程技能。';
+        } else {
+            footerText.innerHTML = 'mTaem~Your coding journey’s windfall <span class="language-tooltip">Click to switch languages</span>';
+            welcomeTitle.innerHTML = 'Welcome to the mTaem';
+            welcomeText.innerHTML = 'Here, you can find various programming problems and improve your coding skills.';
+        }
+    });
+</script>
 
 </body>
 </html>
