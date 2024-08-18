@@ -13,8 +13,7 @@
             margin: 0;
             padding: 0;
             position: relative;
-            min-height: 100vh; /* 确保 footer 在页面底部 */
-            padding-bottom: 50px; /* 留出 footer 的空间 */
+            min-height: calc(100vh - 80px);
         }
 
         header {
@@ -22,44 +21,43 @@
             color: #fff;
             text-align: center;
             padding: 1em;
-            position: fixed; /* 固定定位 */
-            top: 0; /* 靠近顶部 */
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 100%; /* 全宽 */
-            z-index: 1000; /* 确保在其他内容上方 */
+            width: 100%;
+            z-index: 1000;
         }
 
         .navbar {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(45deg, #3498db, #2980b9); /* 渐变背景 */
-            padding: 1px 0; /* 减少上下内边距 */
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* 更细的阴影 */
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            padding: 1px 0;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            margin: 0 6px; /* 减少水平间隔 */
-            padding: 2px 6px; /* 进一步减少内边距 */
+            margin: 0 6px;
+            padding: 2px 6px;
             border-radius: 4px;
             transition: background 0.3s, transform 0.3s;
         }
 
         .navbar a:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05); /* 放大效果 */
+            transform: scale(1.05);
         }
 
         .navbar .login-btn {
-            margin-left: auto; /* 将登录/注册链接推到右侧 */
-            margin-right: 20px; /* 设置距离右边框的距离 */
+            margin-left: auto;
+            margin-right: 20px;
         }
 
-        /* 内容区域的上边距应调整，以避免被固定导航栏遮盖 */
         .content {
-            margin-top: 80px; /* 调整为导航栏的高度 + 额外空间 */
+            margin-top: 80px;
         }
 
         #home {
@@ -69,7 +67,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            left: 40px; /* 设置距离左侧的距离 */
+            left: 40px;
         }
 
         #home .welcome-message {
@@ -82,7 +80,6 @@
 
         #home .logo {
             position: absolute;
-            top: 80px;
             right: 50px;
             width: 300px;
             height: auto;
@@ -91,29 +88,29 @@
 
         footer {
             position: fixed;
-            bottom: 0; /* 保持在页面底部 */
+            bottom: 0;
             left: 0;
             width: 100%;
             text-align: center;
             padding: 10px;
-            background-color: transparent; /* 背景颜色透明 */
-            color: #000; /* 文字颜色黑色 */
-            cursor: pointer; /* 鼠标悬停时显示手型 */
-            z-index: 1000; /* 确保在其他内容上方 */
+            background-color: transparent;
+            color: #000;
+            height: 60px;
         }
 
         .language-tooltip {
             display: none;
             position: absolute;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            bottom: 45px; /* 提示框位置向上调整 */
+            bottom: 45px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 12px;
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border-radius: 4px;
             white-space: nowrap;
+            font-size: 14px;
         }
 
         footer:hover .language-tooltip {
@@ -139,40 +136,44 @@
 <div class="content">
     <section id="home">
         <div class="welcome-message">
-            <h2 id="welcome-title">欢迎来到 mTaem</h2>
-            <p id="welcome-text">在这里，你可以找到各种编程题目，提升你的编程技能。</p>
+            <h2>欢迎来到mTaem</h2>
+            <p>欢迎来到mTaem，这里是你的编程练习场。</p>
         </div>
-        <img src="logo.png" alt="mTaem Logo" class="logo">
+        <img src="logo.png" alt="mTaem Logo" class="logo" id="logo">
     </section>
 </div>
 
-<footer id="footer">
-    <p id="footer-text">mTaem~你编程路上的顺风车
-        <span class="language-tooltip">点击此切换中英文</span>
-    </p>
+<footer>
+    <p id="footer-text">mTaem~你编程路上的顺风车</p>
+    <div class="language-tooltip">点击此切换中英文</div>
 </footer>
 
 <script>
-    const footer = document.getElementById('footer');
-    const footerText = document.getElementById('footer-text');
-    const welcomeTitle = document.getElementById('welcome-title');
-    const welcomeText = document.getElementById('welcome-text');
+    function positionLogo() {
+        var home = document.getElementById('home');
+        var logo = document.getElementById('logo');
+        var homeHeight = home.clientHeight;
+        var logoHeight = logo.clientHeight;
+        var topPosition = (homeHeight - logoHeight) / 2;
+        logo.style.top = topPosition + 'px';
+    }
 
-    let isChinese = true;
-
-    footer.addEventListener('click', () => {
-        isChinese = !isChinese;
-
-        if (isChinese) {
-            footerText.innerHTML = 'mTaem~你编程路上的顺风车 <span class="language-tooltip">点击此切换中英文</span>';
-            welcomeTitle.innerHTML = '欢迎来到 mTaem';
-            welcomeText.innerHTML = '在这里，你可以找到各种编程题目，提升你的编程技能。';
+    document.getElementById('footer-text').addEventListener('click', function() {
+        var currentText = this.innerHTML;
+        if (currentText === 'mTaem~你编程路上的顺风车') {
+            this.innerHTML = 'mTaem~Your coding journey’s windfall';
+            document.querySelector('.welcome-message h2').innerHTML = 'Welcome to mTaem';
+            document.querySelector('.welcome-message p').innerHTML = 'Welcome to mTaem, your coding playground.';
         } else {
-            footerText.innerHTML = 'mTaem~Your coding journey’s windfall <span class="language-tooltip">Click to switch languages</span>';
-            welcomeTitle.innerHTML = 'Welcome to the mTaem';
-            welcomeText.innerHTML = 'Here, you can find various programming problems and improve your coding skills.';
+            this.innerHTML = 'mTaem~你编程路上的顺风车';
+            document.querySelector('.welcome-message h2').innerHTML = '欢迎来到mTaem';
+            document.querySelector('.welcome-message p').innerHTML = '欢迎来到mTaem，这里是你的编程练习场。';
         }
+        positionLogo();
     });
+
+    window.onload = positionLogo;
+    window.onresize = positionLogo;
 </script>
 
 </body>

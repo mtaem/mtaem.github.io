@@ -7,91 +7,81 @@
     <link rel="icon" href="logo.png" type="image/png">
     <style>
         body {
-            background-color: #eaf6ff; /* 淡蓝色背景 */
+            background-color: #f4f4f4; /* 背景颜色保持一致 */
             font-family: "Arial", sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .content {
-            background-color: #fff; /* 白色背景 */
-            padding: 40px; /* 设置内边距 */
-            max-width: 400px; /* 设置最大宽度 */
-            margin: 80px auto 0; /* 垂直居中且向下移动 */
-            border-radius: 8px; /* 添加圆角 */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
-            position: relative; /* 相对定位 */
+            background-color: #add8e6; /* 调整为浅蓝色 */
+            padding: 40px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #333; /* 字体颜色改为深灰色 */
         }
 
         .content a.arrow {
-            text-decoration: none; /* 去除下划线 */
-            color: #888; /* 灰色 */
-            position: absolute; /* 绝对定位 */
-            top: 10px; /* 上边距 */
-            left: 10px; /* 左边距 */
-            display: flex; /* 使用 Flex 布局 */
-            align-items: center; /* 垂直居中 */
-            cursor: pointer; /* 光标样式 */
+            text-decoration: none;
+            color: #333; /* 修改箭头颜色为深灰色 */
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
 
         .content a.arrow:hover {
-            color: #555; /* 深灰色 */
+            color: #555; /* 鼠标悬停时颜色加深 */
         }
 
         .content a.arrow img {
-            width: 20px; /* 图标宽度 */
-            margin-right: 5px; /* 右边距 */
+            width: 20px;
+            margin-right: 5px;
         }
 
         h1 {
-            font-size: 24px; /* 大字 */
-            font-weight: bold; /* 粗体 */
-            margin-bottom: 10px; /* 底部间距 */
-            text-align: center; /* 文本居中 */
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .label {
-            font-size: 14px; /* 小字 */
-            color: #888; /* 灰色 */
-            margin-bottom: 5px; /* 底部间距 */
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-align: left;
         }
 
         input[type="text"],
         input[type="password"] {
-            width: 100%; /* 输入框宽度 */
-            padding: 8px; /* 输入框内边距 */
-            margin-bottom: 15px; /* 底部间距 */
-            border: 1px solid #ccc; /* 边框 */
-            border-radius: 4px; /* 圆角 */
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
         button {
-            background-color: #4CAF50; /* 绿色按钮 */
-            color: white; /* 白色文字 */
-            padding: 10px 15px; /* 内边距 */
-            border: none; /* 去除边框 */
-            border-radius: 4px; /* 圆角 */
-            cursor: pointer; /* 光标样式 */
-            width: 100%; /* 宽度 */
+            background-color: #2980b9; /* 按钮颜色为深蓝色 */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 120px;
+            margin-top: 10px;
         }
 
         button:hover {
-            background-color: #45a049; /* 鼠标悬停时的背景色 */
-        }
-
-        .register-link {
-            font-size: 12px; /* 小字 */
-            color: #888; /* 灰色 */
-            margin-top: 10px; /* 顶部间距 */
-            text-align: center; /* 文本居中 */
-        }
-
-        .register-link a {
-            text-decoration: none; /* 去除下划线 */
-        }
-
-        .register-link a:hover {
-            text-decoration: underline; /* 鼠标悬停时显示下划线 */
+            background-color: #1f669e; /* 鼠标悬停时颜色更深 */
         }
     </style>
 </head>
@@ -108,7 +98,6 @@
     <div class="label">用户密码</div>
     <input type="password" placeholder="请输入密码">
     <button>登录</button>
-    <div class="register-link"><a href="https://mtaem.github.io/register">没有账号，注册</a></div>
 </section>
 
 </body>
