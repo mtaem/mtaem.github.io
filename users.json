@@ -1,19 +1,25 @@
-[
-  {
-    "username": "user1",
-    "password": "password1",
-    "exerciseCount": 0,
-    "dailyExercise": [],
-    "active": false,
-    "role": "member"
-    "email": "lixinze2013@outlook.com"
-  },
-  {
-    "username": "user2",
-    "password": "password2",
-    "exerciseCount": 0,
-    "dailyExercise": [],
-    "active": false,
-    "role": "member"
-  },
-]
+{
+    "users": [
+        {
+            "username": "123abc",
+            "password": "123abc",
+            "role": "member",
+            "problem_count": 0,
+            "problems": []
+        },
+        {
+            "username": "234bcd",
+            "password": "234bcd",
+            "role": "admin",
+            "problem_count": 0,
+            "problems": []
+        },
+        {
+            "username": "345",
+            "password": "345cde",
+            "role": "banned",
+            "problem_count": 0,
+            "problems": []
+        }
+    ]
+}
