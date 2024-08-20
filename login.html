@@ -93,17 +93,20 @@
 <body>
 
 <section class="content">
-    <a href="https://mtaem.github.io" title="返回首页" class="arrow">
+    <a href="index.html" title="返回首页" class="arrow">
         <img src="left-arrow.png" alt="左箭头">
         返回首页
     </a>
     <h1>登录mTaem</h1>
-    <div class="label">用户名</div>
-    <input type="text" placeholder="请输入用户名">
-    <div class="label">用户密码</div>
-    <input type="password" placeholder="请输入密码">
-    <button>登录</button>
-</section>
+<form id="login-form">
+<div class="label">用户名</div>
+<input type="text" id="username" placeholder="请输入用户名">
+<div class="label">用户密码</div>
+<input type="password" id="password" placeholder="请输入密码">
+<button type="button">登录</button>
+</form>
 
+</section>
+<script src="login.js"></script>
 </body>
 </html>
