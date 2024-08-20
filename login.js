@@ -1,33 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    const usernameInput = document.querySelector('#username');
-    const passwordInput = document.querySelector('#password');
     const loginButton = document.querySelector('button');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
     
-    loginButton.addEventListener('click', function(event) {
-        event.preventDefault(); // 防止表单默认提交
-        
-        const username = usernameInput.value;
-        const password = passwordInput.value;
-        
-        // 读取 JSON 文件
-        fetch('user.json')
-            .then(response => response.json())
-            .then(data => {
-                const users = data.users;
-                const user = users.find(user => user.username === username && user.password === password);
-                
-                if (user) {
-                    // 登录成功，保存用户名并重定向到主页
-                    localStorage.setItem('username', username);
-                    window.location.href = 'index.html'; // 主页
-                } else {
-                    alert('用户名或密码错误');
+    // 加载 JSON 数据
+    function loadUsers() {
+        return fetch('users.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
+                return response.json();
             })
+            .then(data => data.users)
             .catch(error => {
-                console.error('读取 JSON 文件失败:', error);
-                alert('登录失败，请稍后再试');
+                console.error('There was a problem with the fetch operation:', error);
+                return []; // 如果有问题，返回一个空数组
             });
+    }
+    
+    // 验证用户
+    function validateUser(users) {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+        
+        for (const user of users) {
+            if (user.username === username && user.password === password) {
+                alert('登录成功');
+                return;
+            }
+        }
+        
+        alert('用户名或密码错误');
+    }
+    
+    // 处理登录点击事件
+    loginButton.addEventListener('click', function() {
+        loadUsers().then(users => validateUser(users));
     });
 });
