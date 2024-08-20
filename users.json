@@ -1,22 +1,22 @@
 {
     "users": [
         {
-            "username": "123abc",
-            "password": "123abc",
+            "username": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad", 
+            "password": "9b74c9897bac770ffc029102a200c5de7f212c3b48db3e0812eb220b220f3a1f", 
             "role": "member",
             "problem_count": 0,
             "problems": []
         },
         {
-            "username": "234bcd",
-            "password": "234bcd",
+            "username": "0716b96f70a4f3ff961c32e52c4d1c0d2d3de8e2fe472b09da94b7b0ad6fba25", 
+            "password": "9b74c9897bac770ffc029102a200c5de7f212c3b48db3e0812eb220b220f3a1f", 
             "role": "admin",
             "problem_count": 0,
             "problems": []
         },
         {
-            "username": "345",
-            "password": "345cde",
+            "username": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd9ed98c00bb064c760", 
+            "password": "5f4dcc3b5aa765d61d8327deb882cf99", 
             "role": "banned",
             "problem_count": 0,
             "problems": []
