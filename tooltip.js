@@ -18,6 +18,7 @@ function showTooltip(message) {
     tooltip.style.maxWidth = '90%';
     tooltip.style.overflow = 'hidden';
     tooltip.style.textOverflow = 'ellipsis';
+    tooltip.style.textAlign = 'center';  // 文字居中
     
     // 设置提示框的文本内容
     tooltip.innerText = message;
