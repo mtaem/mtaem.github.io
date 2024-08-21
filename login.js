@@ -26,8 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (const user of users) {
             if (user.username === username && user.password === password) {
-                alert('登录成功');
-                return;
+                if (user.role === 'banned') {
+                    showTooltip('此用户已封禁');
+                    return;
+                } else {
+                    alert('登录成功');
+                    return;
+                }
             }
         }
         
