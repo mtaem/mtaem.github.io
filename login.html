@@ -82,31 +82,52 @@
             cursor: pointer; /* 光标样式 */
             display: block; /* 独占一行 */
             margin: 0 auto; /* 居中 */
-            width: 50%; /* 减小按钮宽度 */
+            width: 100%; /* 按钮宽度 */
+            font-size: 16px; /* 字体大小 */
         }
 
         button:hover {
-            background-color: #2980b9; /* 鼠标悬停时的背景色 */
+            background-color: #2980b9; /* 按钮悬停背景色 */
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-size: 14px;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
 <body>
 
-<section class="content">
-    <a href="index.html" title="返回首页" class="arrow">
+<div class="content">
+    <a href="index.html" class="arrow">
         <img src="left-arrow.png" alt="左箭头">
         返回首页
     </a>
-    <h1>登录mTaem</h1>
-    <form id="login-form">
-        <div class="label">用户名</div>
-        <input type="text" id="username" placeholder="请输入用户名">
-        <div class="label">用户密码</div>
-        <input type="password" id="password" placeholder="请输入密码">
-        <button type="button">登录</button>
-    </form>
-</section>
+    <h1>登录</h1>
+    <label class="label" for="username">用户名</label>
+    <input type="text" id="username" placeholder="输入用户名">
+
+    <label class="label" for="password">密码</label>
+    <input type="password" id="password" placeholder="输入密码">
+
+    <button id="login-btn">登录</button>
+    <div class="tooltip" id="tooltip">此用户已封禁</div>
+</div>
 
 <script src="login.js"></script>
+<script src="tooltip.js"></script>
+
 </body>
 </html>
