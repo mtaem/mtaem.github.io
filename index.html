@@ -56,16 +56,6 @@
             margin-right: 20px;
         }
 
-        .navbar .username-btn {
-            margin-left: auto;
-            margin-right: 20px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            cursor: default;
-        }
-
         .content {
             margin-top: 80px;
         }
@@ -139,8 +129,7 @@
         <a href="#">提交</a>
         <a href="#">排名</a>
         <a href="#">讨论</a>
-        <a href="https://mtaem.github.io/login" class="login-btn">登录</a>
-        <!-- 用户名按钮会在登录后被插入到这里 -->
+        <a href="login.html" class="login-btn" id="login-btn">登录</a>
     </div>
 </header>
 
@@ -159,7 +148,6 @@
     <div class="language-tooltip">点击此切换中英文</div>
 </footer>
 
-<script src="tooltip.js"></script>
 <script>
     function positionLogo() {
         var home = document.getElementById('home');
@@ -168,6 +156,15 @@
         var logoHeight = logo.clientHeight;
         var topPosition = (homeHeight - logoHeight) / 2;
         logo.style.top = topPosition + 'px';
+    }
+
+    function updateLoginButton(username) {
+        var loginBtn = document.getElementById('login-btn');
+        if (username) {
+            loginBtn.innerHTML = username;
+        } else {
+            loginBtn.innerHTML = '登录';
+        }
     }
 
     document.getElementById('footer-text').addEventListener('click', function() {
@@ -184,7 +181,13 @@
         positionLogo();
     });
 
-    window.onload = positionLogo;
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var username = urlParams.get('username');
+        updateLoginButton(username);
+        positionLogo();
+    };
+
     window.onresize = positionLogo;
 </script>
 
