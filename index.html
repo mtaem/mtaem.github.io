@@ -56,16 +56,6 @@
             margin-right: 20px;
         }
 
-        .navbar .username-btn {
-            margin-left: auto;
-            margin-right: 20px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            cursor: default;
-        }
-
         .content {
             margin-top: 80px;
         }
@@ -139,8 +129,7 @@
         <a href="#">提交</a>
         <a href="#">排名</a>
         <a href="#">讨论</a>
-        <a href="https://mtaem.github.io/login" class="login-btn">登录</a>
-        <!-- 用户名按钮会在登录后被插入到这里 -->
+        <a id="login-btn" class="login-btn" href="https://mtaem.github.io/login">登录</a>
     </div>
 </header>
 
@@ -170,6 +159,12 @@
         logo.style.top = topPosition + 'px';
     }
 
+    function updateLoginButton(username) {
+        var loginBtn = document.getElementById('login-btn');
+        loginBtn.innerText = username;
+        loginBtn.href = '#';  // 可以将 href 更改为个人主页或其他需要的链接
+    }
+
     document.getElementById('footer-text').addEventListener('click', function() {
         var currentText = this.innerHTML;
         if (currentText === 'mTaem~你编程路上的顺风车') {
@@ -184,7 +179,15 @@
         positionLogo();
     });
 
-    window.onload = positionLogo;
+    window.onload = function() {
+        positionLogo();
+        
+        var username = localStorage.getItem('username');
+        if (username) {
+            updateLoginButton(username);
+        }
+    };
+    
     window.onresize = positionLogo;
 </script>
 
