@@ -129,7 +129,8 @@
         <a href="#">提交</a>
         <a href="#">排名</a>
         <a href="#">讨论</a>
-        <a id="login-btn" class="login-btn" href="login">登录</a>
+        <!-- 登录按钮或用户名按钮 -->
+        <a id="user-btn" class="login-btn" href="#">登录</a>
     </div>
 </header>
 
@@ -159,6 +160,32 @@
         logo.style.top = topPosition + 'px';
     }
 
+    function getCookie(name) {
+        let cookieArr = document.cookie.split(";");
+
+        for(let i = 0; i < cookieArr.length; i++) {
+            let cookiePair = cookieArr[i].split("=");
+            
+            if(name === cookiePair[0].trim()) {
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+
+        return null;
+    }
+
+    function updateLoginButton() {
+        var username = getCookie('username');
+        var userBtn = document.getElementById('user-btn');
+        if (username) {
+            userBtn.textContent = username;
+            userBtn.href = '#'; // 这里可以设置用户的个人页面链接
+        } else {
+            userBtn.textContent = '登录';
+            userBtn.href = 'login.html';
+        }
+    }
+
     document.getElementById('footer-text').addEventListener('click', function() {
         var currentText = this.innerHTML;
         if (currentText === 'mTaem~你编程路上的顺风车') {
@@ -172,15 +199,6 @@
         }
         positionLogo();
     });
-
-    function updateLoginButton() {
-        const username = localStorage.getItem('username');
-        if (username) {
-            const loginBtn = document.getElementById('login-btn');
-            loginBtn.textContent = username;
-            loginBtn.href = "#";
-        }
-    }
 
     window.onload = function() {
         positionLogo();

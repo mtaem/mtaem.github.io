@@ -1,43 +1,32 @@
 document.getElementById('login-btn').addEventListener('click', function() {
-    // 获取用户名和密码
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
+    
+    // 发送 AJAX 请求
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'users.json', true);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(JSON.stringify({ username: username, password: password }));
 
-    // 读取 users.json 文件
-    fetch('users.json')
-        .then(response => response.json())
-        .then(data => {
-            var users = data.users;
-            var userFound = false;
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var users = JSON.parse(xhr.responseText).users;
+            var user = users.find(u => u.username === username && u.password === password);
 
-            // 验证用户名和密码
-            for (var i = 0; i < users.length; i++) {
-                if (users[i].username === username) {
-                    if (users[i].password === password) {
-                        userFound = true;
-
-                        if (users[i].role === 'banned') {
-                            // 显示提示信息
-                            showTooltip('此用户已封禁');
-                            return;
-                        }
-
-                        // 登录成功，重定向到首页
-                        window.location.href = 'index.html';
-                        return;
-                    } else {
-                        // 密码错误
-                        showTooltip('密码错误');
-                        return;
-                    }
+            if (user) {
+                if (user.role === 'banned') {
+                    showTooltip('此用户已封禁');
+                } else {
+                    // 设置 cookie
+                    document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
+                    // 重定向到首页
+                    window.location.href = 'index.html';
                 }
+            } else {
+                showTooltip('用户名或密码不正确');
             }
-
-            // 用户名未找到
-            showTooltip('用户名不存在');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showTooltip('发生错误，请重试');
-        });
+        } else {
+            showTooltip('请求失败，请稍后再试');
+        }
+    };
 });
