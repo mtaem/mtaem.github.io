@@ -129,7 +129,6 @@
         <a href="#">提交</a>
         <a href="#">排名</a>
         <a href="#">讨论</a>
-        <!-- 登录按钮或用户名按钮 -->
         <a id="user-btn" class="login-btn" href="#">登录</a>
     </div>
 </header>
@@ -181,7 +180,6 @@
             userBtn.textContent = username;
             userBtn.href = '#'; // 这里可以设置用户的个人页面链接
             userBtn.onclick = function() {
-                // 这里可以处理登出功能
                 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 window.location.reload();
             }
