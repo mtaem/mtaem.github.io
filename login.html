@@ -3,102 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - mTaem编程刷题网站</title>
+    <title>mTaem登录</title>
     <link rel="icon" href="logo.png" type="image/png">
     <style>
         body {
+            background-color: #f4f4f4; /* 调整背景色以匹配首页 */
             font-family: "Arial", sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 100vh; /* 占满整个视口高度 */
         }
 
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
+        .content {
+            background-color: #fff; /* 设置为白色背景 */
+            padding: 40px; /* 设置内边距 */
+            max-width: 400px; /* 设置最大宽度 */
+            border-radius: 8px; /* 添加圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+            border: 1px solid #ddd; /* 添加浅灰色边框 */
+            width: 100%; /* 使宽度填充父容器 */
+            box-sizing: border-box; /* 包含内边距和边框在内的宽度 */
+            position: relative; /* 相对定位 */
         }
 
-        .login-container h1 {
-            margin-bottom: 20px;
+        .content a.arrow {
+            text-decoration: none; /* 去除下划线 */
+            color: #888; /* 灰色 */
+            position: absolute; /* 绝对定位 */
+            top: 10px; /* 上边距 */
+            left: 10px; /* 左边距 */
+            display: flex; /* 使用 Flex 布局 */
+            align-items: center; /* 垂直居中 */
+            cursor: pointer; /* 光标样式 */
         }
 
-        .login-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .content a.arrow:hover {
+            color: #555; /* 深灰色 */
         }
 
-        .login-container button {
-            background-color: #3498db;
+        .content a.arrow img {
+            width: 20px; /* 图标宽度 */
+            margin-right: 5px; /* 右边距 */
+        }
+
+        h1 {
+            font-size: 24px; /* 大字 */
+            font-weight: bold; /* 粗体 */
+            margin-bottom: 10px; /* 底部间距 */
+            text-align: center; /* 文本居中 */
+            color: #333; /* 调整标题颜色 */
+        }
+
+        .label {
+            font-size: 14px; /* 小字 */
+            color: #888; /* 灰色 */
+            margin-bottom: 5px; /* 底部间距 */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* 输入框宽度 */
+            padding: 8px; /* 输入框内边距 */
+            margin-bottom: 15px; /* 底部间距 */
+            border: 1px solid #ccc; /* 边框 */
+            border-radius: 4px; /* 圆角 */
+            box-sizing: border-box; /* 包含内边距和边框在内的宽度 */
+        }
+
+        button {
+            background-color: #3498db; /* 蓝色按钮 */
+            color: white; /* 白色文字 */
+            padding: 10px 15px; /* 内边距 */
+            border: none; /* 去除边框 */
+            border-radius: 4px; /* 圆角 */
+            cursor: pointer; /* 光标样式 */
+            display: block; /* 独占一行 */
+            margin: 0 auto; /* 居中 */
+            width: 100%; /* 按钮宽度 */
+            font-size: 16px; /* 字体大小 */
+        }
+
+        button:hover {
+            background-color: #2980b9; /* 按钮悬停背景色 */
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            border: none;
-            padding: 10px;
             border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-
-        .login-container button:hover {
-            background-color: #2980b9;
-        }
-
-        .login-container .error {
-            color: #e74c3c;
-            margin: 10px 0;
-        }
-
-        .login-container .success {
-            color: #2ecc71;
-            margin: 10px 0;
+            white-space: nowrap;
+            font-size: 14px;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
 <body>
 
-<div class="login-container">
+<div class="content">
+    <a href="index.html" class="arrow">
+        <img src="left-arrow.png" alt="左箭头">
+        返回首页
+    </a>
     <h1>登录</h1>
-    <input type="text" id="username" placeholder="用户名">
-    <input type="password" id="password" placeholder="密码">
-    <button onclick="login()">登录</button>
-    <div id="message" class="error"></div>
+    <label class="label" for="username">用户名</label>
+    <input type="text" id="username" placeholder="输入用户名">
+
+    <label class="label" for="password">密码</label>
+    <input type="password" id="password" placeholder="输入密码">
+
+    <button id="login-btn">登录</button>
+    <div class="tooltip" id="tooltip">此用户已封禁</div>
 </div>
 
-<script>
-    function login() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        var message = document.getElementById('message');
-
-        if (username === "" || password === "") {
-            message.textContent = "用户名和密码不能为空！";
-            return;
-        }
-
-        // 假设用户名和密码正确
-        // 在实际中，您需要进行实际的用户名密码验证
-        var correctUsername = "testuser";
-        var correctPassword = "testpassword";
-
-        if (username === correctUsername && password === correctPassword) {
-            // 登录成功，重定向到首页
-            window.location.href = `index.html?username=${encodeURIComponent(username)}`;
-        } else {
-            message.textContent = "用户名或密码错误！";
-        }
-    }
-</script>
+<script src="login.js"></script>
+<script src="tooltip.js"></script>
 
 </body>
 </html>
