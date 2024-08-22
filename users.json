@@ -20,6 +20,13 @@
             "role": "banned",
             "problem_count": 0,
             "problems": []
+        },
+        {
+            "username": "user4",
+            "password": "password4",
+            "role": "admin",
+            "problem_count": 0,
+            "problems": []
         }
     ]
 }
