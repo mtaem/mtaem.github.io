@@ -56,6 +56,16 @@
             margin-right: 20px;
         }
 
+        .navbar .username-btn {
+            margin-left: auto;
+            margin-right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: default;
+        }
+
         .content {
             margin-top: 80px;
         }
@@ -129,7 +139,8 @@
         <a href="#">提交</a>
         <a href="#">排名</a>
         <a href="#">讨论</a>
-        <a href="login.html" class="login-btn" id="login-btn">登录</a>
+        <a id="login-btn" class="login-btn" href="login.html">登录</a>
+        <span id="username-btn" class="username-btn" style="display:none;"></span>
     </div>
 </header>
 
@@ -148,6 +159,7 @@
     <div class="language-tooltip">点击此切换中英文</div>
 </footer>
 
+<script src="tooltip.js"></script>
 <script>
     function positionLogo() {
         var home = document.getElementById('home');
@@ -158,12 +170,18 @@
         logo.style.top = topPosition + 'px';
     }
 
-    function updateLoginButton(username) {
-        var loginBtn = document.getElementById('login-btn');
+    function updateUsername() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
         if (username) {
-            loginBtn.innerHTML = username;
+            document.getElementById('login-btn').style.display = 'none';
+            const usernameBtn = document.getElementById('username-btn');
+            usernameBtn.style.display = 'inline';
+            usernameBtn.textContent = username;
         } else {
-            loginBtn.innerHTML = '登录';
+            document.getElementById('login-btn').style.display = 'inline';
+            document.getElementById('username-btn').style.display = 'none';
         }
     }
 
@@ -182,12 +200,9 @@
     });
 
     window.onload = function() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var username = urlParams.get('username');
-        updateLoginButton(username);
         positionLogo();
+        updateUsername();
     };
-
     window.onresize = positionLogo;
 </script>
 
