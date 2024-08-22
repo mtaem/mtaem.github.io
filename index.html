@@ -180,9 +180,15 @@
         if (username) {
             userBtn.textContent = username;
             userBtn.href = '#'; // 这里可以设置用户的个人页面链接
+            userBtn.onclick = function() {
+                // 这里可以处理登出功能
+                document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                window.location.reload();
+            }
         } else {
             userBtn.textContent = '登录';
             userBtn.href = 'login.html';
+            userBtn.onclick = null;
         }
     }
 

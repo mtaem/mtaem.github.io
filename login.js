@@ -18,7 +18,10 @@ document.getElementById('login-btn').addEventListener('click', function() {
                     showTooltip('此用户已封禁');
                 } else {
                     // 设置 cookie
-                    document.cookie = "username=" + encodeURIComponent(username) + "; path=/";
+                    var expiryDate = new Date();
+                    expiryDate.setTime(expiryDate.getTime() + (24 * 60 * 60 * 1000)); // 1天后过期
+                    var expires = "expires=" + expiryDate.toUTCString();
+                    document.cookie = "username=" + encodeURIComponent(username) + "; " + expires + "; path=/";
                     // 重定向到首页
                     window.location.href = 'index.html';
                 }
