@@ -3,7 +3,7 @@
         {
             "username": "user1",
             "password": "password1",
-            "role": "super admin",
+            "role": "super_admin",
             "problem_count": 0,
             "problems": []
         },
