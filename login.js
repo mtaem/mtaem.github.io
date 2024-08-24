@@ -7,7 +7,7 @@ document.getElementById('login-btn').addEventListener('click', function() {
     fetch('users.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('网络响应不是 OK');
+                throw new Error('网络未响应');
             }
             return response.json();
         })

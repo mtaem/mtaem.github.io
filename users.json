@@ -3,7 +3,7 @@
         {
             "username": "user1",
             "password": "password1",
-            "role": "admin",
+            "role": "super_admin",
             "problem_count": 0,
             "problems": []
         },
@@ -27,6 +27,12 @@
             "role": "admin",
             "problem_count": 0,
             "problems": []
-        }
-    ]
+        },
+        {
+            "username":"李欣泽",
+            "password":"mTaem-1",
+            "role":"super_admin",
+            "problem_count":0,
+            "problems":[]
+        ]
 }
