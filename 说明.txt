@@ -1,7 +1,5 @@
-关于 mTaem.github.io
+This website is created by the "mTaem" user on the GitHub platform and is intended to provide an online platform for team members to engage in programming practice and discussions. Unauthorized reproduction or use of any content from this website is prohibited. For permission, please contact mTaem2024@hotmail.com.
 
-本网站由 GitHub 平台上的 "mTaem" 用户制作，旨在提供团队成员进行编程练习和讨论的在线平台。未经授权，禁止转载或使用本网站的任何内容。如需使用，请联系 mTaem2024@hotmail.com 以获取许可。
+If someone uses user.json to steal accounts, it is considered illegal. Please report any such incidents!
 
-如有人利用user.json盗号是属于非法行为，遇到请举报！
-
-鉴于 mTaem.github.io 为静态网站，可能存在一定的安全隐患。若在转载或使用过程中出现问题，本网站概不负责。
+Given that mtaem.github.io is a static site, there may be certain security risks. The website is not responsible for any issues that arise during reproduction or use.
