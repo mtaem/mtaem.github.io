@@ -75,13 +75,66 @@
 
         .problem-box {
             background-color: #fff;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            width: 85%;
+            max-width: 780px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .problem-box:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .problem-header h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        .problem-description {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .difficulty {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .difficulty-e { background: #e8f5e9; color: #2e7d32; }
+        .difficulty-m { background: #fff3e0; color: #ef6c00; }
+        .difficulty-h { background: #ffebee; color: #c62828; }
+
+        .problem-description {
+            color: #616161;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .problem-meta {
+            display: flex;
+            gap: 20px;
+            color: #757575;
+            font-size: 12px;
+        }
+
+        text-align: center;
+        width: 300px;
+        transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .problem-box:hover {
@@ -219,3 +272,41 @@
 
 </body>
 </html>
+
+<div class="content" id="problem-container">
+    <div class="message">
+        精选编程题目列表
+    </div>
+</div>
+
+<script>
+    fetch('question.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('problem-container');
+            data.questions.forEach(question => {
+                const problem = document.createElement('div');
+                problem.className = 'problem-box';
+                problem.innerHTML = `
+                    <div class="problem-header">
+                        <h3>${question.题目名字}</h3>
+                        <div class="difficulty difficulty-${question.题目难度}">
+                            ${{
+                                'e': '简单',
+                                'm': '中等',
+                                'h': '困难'
+                            }[question.题目难度]}
+                        </div>
+                    </div>
+                    <div class="problem-description">
+                        ${question.题目简介}
+                    </div>
+                    <div class="problem-meta">
+                        <span>出题人：${question.出题者}</span>
+                        <span>通过率：待实现</span>
+                    </div>
+                `;
+                container.appendChild(problem);
+            });
+        });
+</script>
